@@ -1,2 +1,2 @@
-import Card from "./Card";
-export default Card;
+import CreativeDesign from "./CreativeDesign";
+export default CreativeDesign;

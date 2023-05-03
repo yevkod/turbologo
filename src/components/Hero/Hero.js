@@ -1,51 +1,30 @@
-import React, {useState} from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+import React from 'react';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import logo_desk from '../../assets/img/logo_desk.svg';
-import logo_mob from '../../assets/img/logo_mob.svg';
-import burger_menu from '../../assets/img/burger_menu.svg';
 import styles from './styles';
-import Drawer from "../Drawer";
-import {Box} from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import Navbar from "../Navbar";
+import Box from "@mui/material/Box";
+import Button from "../Button/Button";
+import photo_banner from '../../assets/img/photo_banner.png';
 
-const Header = () => {
-    const [openDrawer, setOpenDrawer] = useState(false);
+
+const Hero = () => {
 
     return (
-        <AppBar position="static" sx={styles.appBar}>
-            <Container maxWidth="xl" sx={styles.container}>
-                <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}/>
-                <Toolbar disableGutters>
-                    <Typography
-                        component="a"
-                        href="/"
-                        sx={styles.logoDesk}
-                    >
-                        <img src={logo_desk} alt="logo"/>
+        <Box sx={styles.hero}>
+            <Box sx={styles.wrapper}>
+                <Box sx={{textAlign: "left"}}>
+                    <Typography variant="h2">The most Advanced Education</Typography>
+                    <Typography variant="body1" sx={styles.text}>
+                        Choose out of 2500+ mentors. Trusted by 250k users. <br/>
+                        Industry experts and top university professors Runs in a browser. Can be downloaded on desktop,
+                        tablet and mobiles. Extremely fast loading at 200ms. Updates work directory from the
+                        website.
                     </Typography>
-                    <Box sx={{flexGrow: 1, display: {xs: "flex", lg: "none"}}}>
-                        <IconButton size="large" aria-lable="menu" onClick={() => setOpenDrawer(true)}>
-                            <img src={burger_menu} alt="burger menu"/>
-                        </IconButton>
-                    </Box>
-                    <Typography
-                        component="a"
-                        href="/"
-                        sx={styles.logoMob}
-                    >
-                        <img src={logo_mob} alt="logo"/>
-                    </Typography>
-                    <Box sx={{flexGrow: 1, display: {xs: "none", lg: "none"}}}>
-                        <Navbar />
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    );
+                    <Button>join us</Button>
+                </Box>
+                <Box component="img" src={photo_banner} sx={styles.photo}/>
+            </Box>
+        </Box>
+    )
 };
 
-export default Header;
+export default Hero;

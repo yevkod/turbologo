@@ -1,2 +1,2 @@
-import Header from "./Header";
-export default Header;
+import Hero from "./Hero";
+export default Hero;

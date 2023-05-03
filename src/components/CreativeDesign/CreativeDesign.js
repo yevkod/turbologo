@@ -1,47 +1,36 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import MuiCard from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import arrowRight from '../../assets/img/arrow-right.svg';
-import strategy_svg from '../../assets/img/strategy.svg';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-
+import Card from '../Card'
 import styles from './styles';
+import design_svg from '../../assets/img/vector-art-and-design-svgrepo-com.svg';
+import development_svg from '../../assets/img/code-coding-development-programming-web-webpage-svgrepo-com.svg';
+import strategy_svg from '../../assets/img/strategy.svg';
+
+const data = [
+    {title: "Strategy", svg: strategy_svg},
+    {title: "Product design", svg: design_svg},
+    {title: "Development", svg: development_svg},
+]
 
 
-const Card = () => {
+const CreativeDesign = () => {
     return (
-        <MuiCard sx={styles.card}>
-            <CardContent sx={{padding: 0}}>
-                <Box component="img" src={strategy_svg}/>
-                <Typography variant="h3">strategy</Typography>
-                <List>
-                    <ListItem sx={styles.listItem}>
-                        <Box component="img" src={arrowRight} sx={{marginRight: "3px"}}/>
-                        Product Management
-                    </ListItem>
-                    <ListItem sx={styles.listItem}>
-                        <Box component="img" src={arrowRight} sx={{marginRight: "3px"}}/>
-                        mpv definition
-                    </ListItem>
-                    <ListItem sx={styles.listItem}>
-                        <Box component="img" src={arrowRight} sx={{marginRight: "3px"}}/>
-                        product strategy
-                    </ListItem>
-                </List>
-            </CardContent>
-            <CardActions sx={{padding: 0}}>
-                <Button sx={styles.btn}>
-                    Read More
-                    <Box component="img" src={arrowRight}/>
-                </Button>
-            </CardActions>
-        </MuiCard>
+        <Box sx={styles.creativeDesign}>
+            <Box sx={styles.wrapper}>
+                <Typography variant="h2">Creative design solutions</Typography>
+                <Typography variant="body1" sx={{textTransform: "capitalize", margin: "25px 0"}}>
+                    professional design agency to provide solutions{' '}
+                </Typography>
+                <Stack sx={styles.stack}>
+                    {data.map((item, index) => {
+                        return <Card title={item.title} imgSrc={item.svg} key={index}/>
+                    })}
+                </Stack>
+            </Box>
+        </Box>
     );
 };
 
-export default Card;
+export default CreativeDesign;
